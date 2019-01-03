@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="../style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
         <meta charset="utf-8" />
-        <title>Exercice2</title>
+        <title>Exercice1</title>
     </head>
     <body>
 
@@ -14,8 +14,8 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 m12 s12">
-                    <h1>Exercice 1</h1>
-                    <p class="presentation">Afficher tous les clients.</p>
+                    <h1>Exercice 2</h1>
+                    <p class="presentation" >Afficher tous les types de spectacles possibles.</p>
                 </div>
                 <div class="col s12 m6 l6">
                     <?php
@@ -33,15 +33,15 @@
                     // Si tout va bien, on peut continuer
 
                     // On récupère tout le contenu de la table clients
-                    $reponse = $bdd->query('SELECT * FROM clients');
-
-                    // On affiche chaque entrée une à une
+                    $reponse = $bdd->query('SELECT * FROM showTypes');?>
+                    <p><strong>Types de spectacles</strong> :</p>  
+                    
+                    <?php
                     while ($donnees = $reponse->fetch())
                     {
                     ?>
                     <p>
-                        <strong>Nom</strong> : <?php echo $donnees['lastName']; ?><br />
-                        <strong>Prénom</strong> : <?php echo $donnees['firstName']; ?>
+                       <?php echo $donnees['type']; ?>
                     </p>
                     <?php
                     }
