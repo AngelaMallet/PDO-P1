@@ -16,7 +16,7 @@ catch(Exception $e)
 
 // On récupère tout le contenu de la table clients
 
-$reponse = $bdd->query('SELECT * FROM shows');
+$reponse = $bdd->query('SELECT * FROM shows ORDER BY title');
 ?>
 
 <!DOCTYPE html>

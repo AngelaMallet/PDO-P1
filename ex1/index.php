@@ -1,3 +1,20 @@
+<?php
+class database {
+    public $database;
+    public function __construct(){
+        try {
+            $this->database = new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8', 'pda', 'pda');
+        } catch (Exception $error) {
+            die('Erreur de connexion ' . $error->getMessage());   
+        }
+    }
+
+    public function __destruct() {
+        $this->database = NULL;
+    }
+}
+echo 'prout';
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -19,35 +36,17 @@
                 </div>
                 <div class="col s12 m6 l6">
                     <?php
-                    try
-                    {
-                        // On se connecte à MySQL
-                        $bdd = new PDO('mysql:host=localhost;dbname=colyseum;charset=utf8', 'pda', 'pda');
-                    }
-                    catch(Exception $e)
-                    {
-                        // En cas d'erreur, on affiche un message et on arrête tout
-                        die('Erreur : '.$e->getMessage());
-                    }
-
-                    // Si tout va bien, on peut continuer
-
-                    // On récupère tout le contenu de la table clients
-                    $reponse = $bdd->query('SELECT * FROM clients');
-
+                
                     // On affiche chaque entrée une à une
-                    while ($donnees = $reponse->fetch())
+                    foreach ($clientsList as $client)
                     {
                     ?>
                     <p>
-                        <strong>Nom</strong> : <?php echo $donnees['lastName']; ?><br />
-                        <strong>Prénom</strong> : <?php echo $donnees['firstName']; ?>
+                        <strong>Nom</strong> : <?php echo $client->$lastname; ?><br />
+                        <strong>Prénom</strong> : <?php echo $client->$firstname; ?>
                     </p>
                     <?php
                     }
-
-                    $reponse->closeCursor(); // Termine le traitement de la requête
-
                     ?>
                 </div>
             </div>

@@ -1,3 +1,6 @@
+<?php
+require 'controlers/controllerIndex-3.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -6,7 +9,7 @@
         <link rel="stylesheet" href="../style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
         <meta charset="utf-8" />
-        <title>Exercice2</title>
+        <title>Exercice3</title>
     </head>
     <body>
 
@@ -14,23 +17,13 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 m12 s12">
-                    <h1>Exercice 2</h1>
-                    <p class="presentation" >Afficher tous les types de spectacles possibles.</p>
+                    <h1>Exercice 3</h1>
+                    <p class="presentation">Afficher les 20 premiers clients.</p>
                 </div>
                 <div class="col s12 m6 l6">
-                    <?php
-
-                    // On affiche chaque entrée une à une
-                    foreach ($showTypesList as $showTypes)
-                    {
-                    ?>
-                    <p>
-                        <strong>Nom du spectacle </strong> : <?= $showTypes->$type; ?><br />
-                        
-                    </p>
-                    <?php
-                    }
-                    ?>
+                    <?php foreach ($clientsArray as $client){ ?>
+                    <div><?= $client->lastName ?></div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
